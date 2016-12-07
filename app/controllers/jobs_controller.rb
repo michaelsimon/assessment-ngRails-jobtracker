@@ -2,42 +2,45 @@ class JobsController < ApplicationController
   before_action :get_job, only: [:show, :edit, :update, :destroy]
 
   def index
-    @jobs = Job.find_by(user:  params[:user])
-    if @jobs
-      render json: @jobs, serializer: JobSerializer, status: 201
+    # jobs = Job.find_by(user:  params[:user])
+    jobs = Job.all
+    if jobs
+      render json: jobs, each_serializer: JobSerializer, status: 201
+    else
+      render json: {errors: jobs.errors.full_messages}, status: :unprocessable_entity_message
     end
   end
 
   def show
-    if @job
-      render json: @job, serializer: JobSerializer, status: 201
+    if job
+      render json: job, serializer: JobSerializer, status: 201
     else
-      render status: 400
+      render json: {errors: job.errors.full_messages}, status: :unprocessable_entity_message
     end
   end
 
   def create
-    @job = Job.new(job_params)
-    if @job.save
-      render json: @job, serializer: JobSerializer, status: 201
+    job = Job.new(job_params)
+    if job.save
+      render json: job, serializer: JobSerializer, status: 201
     else
-      render status: 400
+      render json: {errors: job.errors.full_messages}, status: :unprocessable_entity_message
     end
   end
 
   def edit
-    if @job
-      render json: @job, serializer: JobSerializer, status: 201
+    if job
+      render json: job, serializer: JobSerializer, status: 201
     else
-      render status: 400
+      render json: {errors: job.errors.full_messages}, status: :unprocessable_entity_message
     end
   end
 
   def update
-    if @job.update(job_params)
-      render json: @job, serializer: JobSerializer, status: 201
+    if job.update(job_params)
+      render json: job, serializer: JobSerializer, status: 201
     else
-      render status: 400
+      render json: {errors: job.errors.full_messages}, status: :unprocessable_entity_message
     end
   end
 
@@ -47,7 +50,7 @@ class JobsController < ApplicationController
   private
 
   def get_job
-    @job = Job.find(params[:id])
+    job = Job.find(params[:id])
   end
 
   def job_params
