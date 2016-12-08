@@ -1,0 +1,15 @@
+<div>
+  <h2>job show</h2>
+Job: {{ vm.jobs.job.job_name }}<br />
+Title: {{ vm.jobs.job.title }}<br />
+Company: {{ vm.jobs.job.company }}<br />
+Description: <br />{{ vm.jobs.job.description }}<br />
+Salary: {{ vm.jobs.job.salary }}<br />
+URL: <a href="{{ vm.jobs.job.app_url }}">{{ vm.jobs.job.app_url }}</a><br />
+Date Posted: {{ vm.jobs.job.date_posted }}<br />
+Date Found:  {{ vm.jobs.job.date_found }}<br />
+Status: {{ vm.jobs.job.status }}<br />
+</div>
+</div>
+
+<ui-view></ui-view>
