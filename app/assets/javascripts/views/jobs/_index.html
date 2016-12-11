@@ -1,19 +1,10 @@
 <div>
   <h2>job index</h2>
-{{ vm }}
-<ul>
-  <li ng-repeat="job in vm.jobs.jobs track by job.id">
-    Job: {{ job.job_name }}<br />
-    Title: {{ job.title }}<br />
-    Company: {{ job.company }}<br />
-    Description: <br />{{ job.description }}<br />
-    Salary: {{ job.salary }}<br />
-    URL: <a href="{{ job.app_url }}">{{ job.app_url }}</a><br />
-    Date Posted: {{ job.date_posted }}<br />
-    Date Found:  {{ job.date_found }}<br />
-    Status: {{ job.status }}<br />
-    <a ui-sref="jobs.show({id: job.id})">Job {{ job.id }} Details</a>
-  </li>
-</ul>
-
+  <a href="#" ui-sref="jobs.new">New Job</a>
+  <md-content class="md-padding" layout-xs="column" layout="row" layout-wrap>
+    <div flex="33" flex-sm="80" ng-repeat="job in vm.jobs.jobs track by job.id">
+      <job job-object="job">
+      </job>
+    </div>
+  </md-content>
 </div>
