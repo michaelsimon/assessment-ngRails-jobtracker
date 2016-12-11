@@ -3,32 +3,30 @@
   'use strict'
 
   angular
-    .module('app')
-    .config(function($stateProvider, $urlRouterProvider) {
-      $stateProvider
-      .state('jobs', {
-        url: "/jobs",
-        abstract: true,
-        template: '<ui-view />'
-      })
-      .state('jobs.list', {
-        url: "/list",
-        templateUrl: 'views/jobs/_index.html',
-        controller: 'JobController as vm'
-      })
-      .state('jobs.show', {
-        url: "/view/:id",
-        templateUrl: 'views/jobs/_show.html',
-        controller: 'JobController as vm'
-      })
-      $urlRouterProvider.otherwise('/404');
+  .module('app')
+  .config(function($stateProvider, $urlRouterProvider) {
+    $stateProvider
+    .state('jobs', {
+      url: "/jobs",
+      abstract: true,
+      template: '<ui-view />'
     })
-    .state('jobs.create', {
-      url: "/new",
-      templateUrl: 'views/jobs/new.html',
+    .state('jobs.list', {
+      url: "/list",
+      templateUrl: 'views/jobs/_index.html',
       controller: 'JobController as vm'
     })
-    $urlRouterProvider.otherwise('/404');
+    .state('jobs.show', {
+      url: "/view/:id",
+      templateUrl: 'views/jobs/_show.html',
+      controller: 'JobController as vm'
+    })
+    .state('jobs.new', {
+      url: "/new",
+      templateUrl: 'views/jobs/_new.html',
+      controller: 'JobController as vm'
+    })
+    $urlRouterProvider.otherwise('/jobs');
   })
 }())
 
