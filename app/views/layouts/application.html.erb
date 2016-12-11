@@ -8,19 +8,18 @@
 </head>
 <body ng-app="app">
   <div layout="row">
-  <md-toolbar layout="row" class="md-toolbar-tools">
-    <md-button class="menu md-icon-button" hide-gt-sm>
-      <md-icon md-svg-icon="menu"></md-icon>
-    </md-button>
-    <h1>Job Tracker</h1>
-  </md-toolbar>
-    </div>
-<div layout="row">
-  <div flex>
-    <%= yield %>
+    <md-toolbar layout="row" class="md-toolbar-tools">
+      <md-button class="menu md-icon-button" hide-gt-sm>
+        <md-icon md-svg-icon="menu"></md-icon>
+      </md-button>
+      <h1>Job Tracker</h1>
+    </md-toolbar>
   </div>
-
-</div>
+  <div layout="row">
+    <div flex>
+      <%= yield %>
+    </div>
+  </div>
 </md-content>
 </body>
 </html>

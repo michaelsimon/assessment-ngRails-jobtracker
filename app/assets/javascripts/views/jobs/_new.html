@@ -1,13 +1,38 @@
-<h2>new job</h2>
-
-<form ng-submit="vm.createJob()">
-    Job Name: <input ng-model="vm.newJob.job_name" /><br />
-    Job Title: <input ng-model="vm.newJob.title" /><br>
-    Company: <input ng-model="vm.newJob.company" /><br>
-    Description: <input ng-model="vm.newJob.description" /><br>
-    Salary: <input ng-model="vm.newJob.salary" /><br>
-    Application URL: <input ng-model="vm.newJob.url" /><br>
-    Status: <input ng-model="vm.newJob.status" /><br>
-    <input type="submit" value="submit">
-
-</form>
+<div ng-layout="column" ng-cloak class="md-inline-form" layout-padding>
+  <h2 class="md-title">Add a New Job</h2>
+  <form ng-submit="vm.createJob()">
+    <div flex="80">
+      <md-input-container class="md-block" flex-gt-xs>
+        <label>Job Name</label>
+        <input ng-model="vm.newJob.job_name" />
+      </md-input-container>
+      <md-input-container class="md-block" flex-gt-xs>
+        <label>Job Title:</label>
+        <input ng-model="vm.newJob.title" />
+      </md-input-container>
+      <md-input-container class="md-block" flex-gt-xs>
+        <label>Company</label>
+        <input ng-model="vm.newJob.company" />
+      </md-input-container>
+      <md-input-container class="md-block" flex-gt-xs>
+        <label>Description</label>
+        <textarea ng-model="vm.newJob.description" rows="3" md-select-on-focus></textarea>
+      </md-input-container>
+      <md-input-container class="md-block" flex-gt-xs>
+        <label>Salary</label>
+        <input ng-model="vm.newJob.salary" />
+      </md-input-container>
+      <md-input-container class="md-block" flex-gt-xs>
+        <label>Application URL</label>
+        <input ng-model="vm.newJob.url" />
+      </md-input-container>
+      <md-input-container class="md-block" flex-gt-xs>
+        <label>Status</label>
+        <input ng-model="vm.newJob.status" />
+      </md-input-container>
+    </div>
+    <div>
+      <md-button class="md-raised md-primary" type="submit">Create</md-button>
+    </div>
+  </form>
+</div>

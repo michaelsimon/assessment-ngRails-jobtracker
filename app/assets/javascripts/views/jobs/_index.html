@@ -1,6 +1,9 @@
-<div>
-  <h2>job index</h2>
-  <a href="#" ui-sref="jobs.new">New Job</a>
+<div layout-padding>
+  <h2 class="md-title">Your Jobs</h2>
+  <div>
+      <md-button class="md-raised md-primary" ui-sref="jobs.new">New Job</md-button>
+  </div>
+
   <md-content class="md-padding" layout-xs="column" layout="row" layout-wrap>
     <div flex="33" flex-sm="80" ng-repeat="job in vm.jobs.jobs track by job.id">
       <job job-object="job">
