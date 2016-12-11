@@ -13,5 +13,10 @@
 //= require jquery
 //= require angular
 //= require angular-ui-router
+//= require angular-messages
+//= require angular-sanitize
+//= require angular-animate
+//= require angular-aria
 //= require angular-rails-templates
+//= require angular-material
 //= require_tree .
