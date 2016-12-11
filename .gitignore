@@ -16,3 +16,6 @@
 !/log/.keep
 /tmp
 /spec
+
+#Ignore bower assets
+/vendor/assets/bower_components/
