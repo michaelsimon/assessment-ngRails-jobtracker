@@ -7,9 +7,8 @@
     //callable methods on JobFactory
     return {
       getJobs: getJobs,
-      getJob: getJob
-      // ,
-      // createJob: createJob,
+      getJob: getJob,
+      createJob: createJob
       // updateJob: updateJob,
       // deleteJob: deleteJob
     }
@@ -25,6 +24,22 @@
       return $http.get('/jobs/' + id)
       .then(handleResponse)
       .catch(handleError)
+    }
+
+    function createJob(job) {
+      var req = {
+        method: 'POST',
+        url: '/jobs',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        data: {
+          job: job
+        }
+      }
+
+      return $http(req)
+        .catch(handleError)
     }
 
     //handle $http responses and errors

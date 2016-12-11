@@ -4,7 +4,8 @@
 
   function JobController(JobFactory, $state) {
     var vm = this;
-    console.log($state);
+    // console.log($state);
+    vm.createJob = createJob;
 
     // //instantiate functions
     activate();
@@ -28,6 +29,12 @@
       return JobFactory.getJob(params)
         .then(setJobs)
     }
+
+    function createJob() {
+      return JobFactory.createJob(vm.newJob)
+        .then($state.go('jobs.list'))
+    }
+
 
     function setJobs(data) {
       return vm.jobs = data;
