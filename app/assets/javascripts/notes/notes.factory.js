@@ -1,3 +1,46 @@
+(function() {
+
+  'use strict'
+
+  function NoteFactory($http) {
+
+    return {
+      createNote: createNote
+    }
+
+    function createNote(note) {
+      var req = {
+        method: 'POST',
+        url: '/jobs/' + note.job_id + '/notes',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        data: {
+          note: note
+        }
+      }
+      return $http(req)
+      .catch(handleError)
+    }
+
+    function handleError(error) {
+      return error
+    }
+  }
+
+  angular
+  .module('app')
+  .factory('NoteFactory', NoteFactory);
+}())
+
+
+
+
+
+
+
+
+
 // function NoteFactory($http) {
 //
 //   getNotes = function() {
