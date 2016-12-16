@@ -5,7 +5,7 @@ class JobsController < ApplicationController
     # jobs = Job.find_by(user:  params[:user])
     @jobs = Job.all
     if @jobs
-      render json: @jobs, each_serializer: JobSerializer, status: 201
+      render json: @jobs, status: 201
     else
       render json: {errors: @jobs.errors.full_messages}, status: :unprocessable_entity_message
     end
@@ -13,7 +13,7 @@ class JobsController < ApplicationController
 
   def show
     if @job
-      render json: @job, serializer: JobSerializer, status: 201
+      render json: @job, status: 201
     else
       render json: {errors: @job.errors.full_messages}, status: :unprocessable_entity_message
     end
@@ -22,7 +22,7 @@ class JobsController < ApplicationController
   def create
     @job = Job.new(job_params)
     if @job.save
-      render json: @job, serializer: JobSerializer, status: 201
+      render json: @job, status: 201
     else
       render json: {errors: @job.errors.full_messages}, status: :unprocessable_entity_message
     end
@@ -30,7 +30,7 @@ class JobsController < ApplicationController
 
   def edit
     if @job
-      render json: @job, serializer: JobSerializer, status: 201
+      render json: @job, status: 201
     else
       render json: {errors: @job.errors.full_messages}, status: :unprocessable_entity_message
     end
@@ -38,7 +38,7 @@ class JobsController < ApplicationController
 
   def update
     if @job.update(job_params)
-      render json: @job, serializer: JobSerializer, status: 201
+      render json: @job, status: 201
     else
       render json: {errors: @job.errors.full_messages}, status: :unprocessable_entity_message
     end
