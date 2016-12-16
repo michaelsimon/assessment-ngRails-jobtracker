@@ -9,7 +9,6 @@
       scope: {
         jobObject: '='
       },
-      controller: 'JobController as vm',
       transclude: true
     }
   }
