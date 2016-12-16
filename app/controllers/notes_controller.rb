@@ -1,44 +1,22 @@
 class NotesController < ApplicationController
-  before_action :get_note, only: [:show, :edit, :update, :destroy]
-
+  before_action :get_note, only: [:destroy]
   def index
-    @notes = Notes.find_by(job_id: params[:job_id])
+    @notes = Note.where(job_id: params[:job_id])
     if @notes
-      render json: @notes, serializer: NoteSerializer, status: 201
+      render json: @notes, status: 201
     end
-  end
-
-  def show
-    if @note
-      render json: @note, serializer: NoteSerializer, status: 201
-    end
-
   end
 
   def create
     @note = Note.new(note_params)
+    @note.job_id = params[:job_id]
     if @note.save
-      render json: @note, serializer: NoteSerializer, status: 201
+      render json: @note,  status: 201
     else
       render status: 400
     end
   end
 
-  def edit
-    if @note
-      render json: @note, serializer: NoteSerializer, status: 201
-    else
-      render status: 400
-    end
-  end
-
-  def update
-    if @note.update(note_params)
-      render json: @note, serializer: NoteSerializer, status: 200
-    else
-      render status: 400
-    end
-  end
 
   def destroy
   end
@@ -50,7 +28,7 @@ class NotesController < ApplicationController
   end
 
   def note_params
-    params.require(:note).permit(:job_id, :note)
+    params.require(:note).permit( :note)
   end
 
 end
