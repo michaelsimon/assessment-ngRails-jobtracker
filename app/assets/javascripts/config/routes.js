@@ -9,22 +9,20 @@
     .state('jobs', {
       url: "/jobs",
       abstract: true,
-      template: '<ui-view />'
+      template: '<ui-view />',
+      controller: 'JobController as vm'
     })
     .state('jobs.list', {
       url: "/list",
-      templateUrl: 'views/jobs/_index.html',
-      controller: 'JobController as vm'
+      templateUrl: 'views/jobs/_index.html'
     })
     .state('jobs.show', {
       url: "/view/:id",
-      templateUrl: 'views/jobs/_show.html',
-      controller: 'JobController as vm'
+      templateUrl: 'views/jobs/_show.html'
     })
     .state('jobs.new', {
       url: "/new",
-      templateUrl: 'views/jobs/_new.html',
-      controller: 'JobController as vm'
+      templateUrl: 'views/jobs/_new.html'
     })
     $urlRouterProvider.otherwise('/jobs');
   })
