@@ -2,16 +2,24 @@
 
   'use strict'
 
-  function NoteFactory($http) {
+  function NoteFactory($http, $state) {
 
     return {
+      getNotes: getNotes,
       createNote: createNote
     }
 
+    function getNotes() {
+      return $http.get('/jobs/' + $state.params.id + '/notes')
+      .then(handleResponse)
+      .then(handleError)
+    }
+
     function createNote(note) {
+
       var req = {
         method: 'POST',
-        url: '/jobs/' + note.job_id + '/notes',
+        url: '/jobs/' + $state.params.id + '/notes',
         headers: {
           'Content-Type': 'application/json'
         },
@@ -21,6 +29,10 @@
       }
       return $http(req)
       .catch(handleError)
+    }
+
+    function handleResponse(response) {
+      return response.data
     }
 
     function handleError(error) {
