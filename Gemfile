@@ -24,6 +24,8 @@ gem 'bower-rails'
 # Allows to write HTML code within js assets folder
 # and compile HTML into assets pipeline
 gem 'angular-rails-templates'
+# Adds user authentication to rails app
+gem 'devise'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
