@@ -19,4 +19,5 @@
 //= require angular-aria
 //= require angular-rails-templates
 //= require angular-material
+//= require angular-devise
 //= require_tree .
