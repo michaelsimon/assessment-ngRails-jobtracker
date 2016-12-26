@@ -31,6 +31,16 @@
       templateUrl: 'views/jobs/_edit.html',
       controller: 'JobController as vm'
     })
+    .state('jobs.register', {
+      url: "/register",
+      templateUrl: 'views/users/_register.html',
+      controller: 'UserController as vm'
+    })
+    .state('jobs.login', {
+      url: "/login",
+      templateUrl: 'views/users/_login.html',
+      controller: 'UserController as vm'
+    })
     $urlRouterProvider.otherwise('/jobs');
   })
 }())
