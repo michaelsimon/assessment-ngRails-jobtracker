@@ -4,13 +4,11 @@
 
   function JobController(JobFactory, $state, $scope, Auth) {
     var vm = this;
-    // console.log($state);
+
     vm.createJob = createJob;
     vm.updateJob = updateJob;
 
-    // debugger
-
-    // //instantiate functions
+    //instantiate functions
     activate();
 
     // define methods
@@ -42,7 +40,6 @@
     }
 
     function updateJob() {
-      // debugger
       return JobFactory.updateJob(vm.jobs.job)
         .then($state.go('jobs.list'))
     }
@@ -50,7 +47,6 @@
     function setJobs(data) {
       return vm.jobs = data;
     }
-
 
   }
   angular
