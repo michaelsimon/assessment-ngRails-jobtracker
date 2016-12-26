@@ -8,8 +8,8 @@
     return {
       getJobs: getJobs,
       getJob: getJob,
-      createJob: createJob
-      // updateJob: updateJob,
+      createJob: createJob,
+      updateJob: updateJob
       // deleteJob: deleteJob
     }
 
@@ -38,6 +38,24 @@
         }
       }
 
+      return $http(req)
+        .catch(handleError)
+    }
+
+    function updateJob(job, $state) {
+
+      // debugger
+      var req = {
+        method: 'PATCH',
+        url: '/jobs/' + job.id,
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        data: {
+          job: job
+        }
+      }
+      // console.log(req)
       return $http(req)
         .catch(handleError)
     }
