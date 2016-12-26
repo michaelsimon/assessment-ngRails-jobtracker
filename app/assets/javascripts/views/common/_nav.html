@@ -1,0 +1,15 @@
+<div layout="row">
+  <md-toolbar layout="row" class="md-toolbar-tools">
+    <h1><a href="#" ui-sref="jobs.list"><strong>Job Tracker</strong><span ng-if="user"> for {{ user.email }}</span></a></h1>
+    <span flex></span>
+    <md-button ng-show="!signedIn()" aria-label="Login" ui-sref="jobs.login">
+      Login
+    </md-button>
+    <md-button ng-show="!signedIn()" aria-label="Register" ui-sref="jobs.register">
+      Register
+    </md-button>
+    <md-button ng-show="signedIn()" aria-label="Logout" ng-click="logout()">
+      Logout
+    </md-button>
+  </md-toolbar>
+</div>
