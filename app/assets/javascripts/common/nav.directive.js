@@ -1,11 +1,10 @@
 (function() {
   'use strict'
 
-  function Nav() {
+  function Nav(AuthService) {
     return {
       restrict: 'EA',
-      templateUrl: 'views/common/_nav.html',
-      controller: 'NavCtrl'
+      templateUrl: 'views/common/_nav.html'
     }
   }
 
