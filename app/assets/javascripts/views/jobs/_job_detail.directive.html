@@ -1,0 +1,31 @@
+<md-card>
+  <md-card-title>
+    <md-card-title-text>
+      <span class="md-headline">{{ jobObject.job_name }}</span>
+      <span class="md-subhead">{{ jobObject.title }} @ {{ jobObject.company }}<br />Status: {{ jobObject.status }}</span>
+    </md-card-title-text>
+  </md-card-title>
+  <md-card-content>
+    <p>
+      Description:<br />
+      {{ jobObject.description }}
+    </p>
+    <p>
+      Salary: {{ jobObject.salary }}
+    </p>
+    <p>
+      Date Found: {{ jobObject.date_found |  date : 'shortDate' }}<br />
+      Date Posted: {{ jobObject.date_posted |  date:'short' }}
+    </p>
+    <p>
+      Application: <a href="{{ jobObject.app_url}}" target="_blank">{{ jobObject.app_url}}</a>
+    </p>
+    <p>
+      Last Updated: {{ jobObject.updated_at | date : 'EEEE MM/dd/yyyy' }}<br />
+      Created: {{ jobObject.created_at | date : 'EEEE MM/dd/yyyy' }}
+    </p>
+  </md-card-content>
+  <md-card-actions layout="row" layout-align="end center">
+    <md-button class="md-primary" ui-sref="jobs.edit({id: jobObject.id})">Edit Job</md-button>
+  </md-card-actions>
+</md-card>
