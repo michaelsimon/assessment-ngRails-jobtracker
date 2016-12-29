@@ -1,5 +1,4 @@
 class NotesController < ApplicationController
-  before_action :get_note, only: [:destroy]
   def index
     @notes = Note.where(job_id: params[:job_id])
     if @notes
@@ -17,15 +16,7 @@ class NotesController < ApplicationController
     end
   end
 
-
-  def destroy
-  end
-
   private
-
-  def get_note
-    @note = Note.find_by(id: params[:id], job_id: params[:job_id])
-  end
 
   def note_params
     params.require(:note).permit( :note)

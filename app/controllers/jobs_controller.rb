@@ -1,9 +1,8 @@
 class JobsController < ApplicationController
-  before_action :get_job, only: [:show, :edit, :update, :destroy]
+  before_action :get_job, only: [:show, :edit, :update]
 
   def index
-    # jobs = Job.find_by(user:  params[:user])
-    @jobs = Job.all
+    @jobs = Job.where(user: current_user)
     if @jobs
       render json: @jobs, status: 201
     else
@@ -21,6 +20,7 @@ class JobsController < ApplicationController
 
   def create
     @job = Job.new(job_params)
+    @job.user = current_user
     if @job.save
       render json: @job, status: 201
     else
@@ -44,13 +44,10 @@ class JobsController < ApplicationController
     end
   end
 
-  def destroy
-  end
-
   private
 
   def get_job
-    @job = Job.find(params[:id])
+    @job = Job.find_by(id: params[:id], user: current_user)
   end
 
   def job_params
