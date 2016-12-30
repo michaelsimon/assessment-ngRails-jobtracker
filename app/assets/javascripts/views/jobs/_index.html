@@ -5,11 +5,26 @@
       <md-button class="md-raised md-primary" ui-sref="jobs.new">New Job</md-button>
     </div>
     <div flex="33">
-      <md-input-container>
+      <md-input-container ng-show="vm.jobs.jobs.length > 0">
         <label>Search Jobs</label>
         <input type="text" ng-model="vm.search" ng-change="vm.refilter()" />
       </md-input-container>
     </div>
+  </div>
+  <div ng-show="vm.jobs.jobs.length < 1">
+    <md-content layout-xs="column" layout="row" layout-wrap>
+      <div flex="100" flex-sm="80">
+        <md-card>
+          <md-card-title>
+            <md-card-title-text>
+              <span class="md-headline">
+                Create a New Job to Get Started
+              </span>
+            </md-card-title-text>
+          </md-card-title>
+        </md-card>
+      </div>
+    </md-content>
   </div>
   <md-content class="md-padding" layout-xs="column" layout="row" layout-wrap>
     <div flex="33" flex-sm="80" ng-repeat="job in vm.jobs.jobs | filter: vm.search track by job.id">
