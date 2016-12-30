@@ -9,7 +9,19 @@
     .state('jobs', {
       url: "/jobs",
       abstract: true,
-      template: '<ui-view />'
+      template: '<ui-view />',
+      controller: function ($rootScope, $state) {
+        $rootScope.$on('$stateChangeStart', function (event, toState, toParams, $rootScope) {
+          var requireAuth = toState.data.requireAuth;
+          if (requireAuth && typeof event.currentScope.user === 'undefined') {
+            event.preventDefault();
+            $state.go('jobs.login');
+          }
+        });
+        $rootScope.$on('devise:logout', function(event, oldCurrentUser) {
+          $state.go('jobs.login');
+        });
+      }
     })
     .state('jobs.list', {
       url: "/list",

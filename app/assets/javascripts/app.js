@@ -8,20 +8,6 @@
     $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
   });
 
-  angular
-  .module('app')
-  .run(function ($rootScope, $state) {
-    $rootScope.$on('$stateChangeStart', function (event, toState, toParams) {
-      var requireAuth = toState.data.requireAuth;
-      // debugger
-      if (requireAuth && typeof $rootScope.currentUser === 'undefined') {
-        event.preventDefault();
-        $state.go('jobs.login');
-      }
-    });
-
-  });
-
 angular
 .module('app')
 .directive('input', ['$parse', function ($parse) {
