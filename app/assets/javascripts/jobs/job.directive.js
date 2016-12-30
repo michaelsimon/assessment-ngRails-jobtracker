@@ -8,8 +8,7 @@
       templateUrl: 'views/jobs/_job.directive.html',
       scope: {
         jobObject: '='
-      },
-      transclude: true
+      }
     }
   }
 
