@@ -15,7 +15,7 @@
     </p>
     <p>
       Date Found: {{ jobObject.date_found |  date : 'shortDate' }}<br />
-      Date Posted: {{ jobObject.date_posted |  date:'short' }}
+      Date Posted: {{ jobObject.date_posted |  date:'shortDate' }}
     </p>
     <p>
       Application: <a href="{{ jobObject.app_url}}" target="_blank">{{ jobObject.app_url}}</a>
