@@ -14,3 +14,15 @@
  *= require_self
  *= require angular-material
  */
+body {
+    background-color: #405536;
+    background-image: url('bg.jpg');
+    background-size: cover;
+  }
+
+  #SiteBody
+  {
+    max-width: 90%;
+    margin: 0 auto;
+    background-color: rgba(255,255,255,0.5);
+  }
