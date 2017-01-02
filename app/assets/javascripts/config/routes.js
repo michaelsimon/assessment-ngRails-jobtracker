@@ -41,7 +41,6 @@
     .state('jobs.show', {
       url: "view/:id",
       templateUrl: 'views/jobs/_show.html',
-      controller: 'JobController as vm',
       data: {
         requireAuth: true
       }
