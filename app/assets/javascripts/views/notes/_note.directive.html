@@ -1,12 +1,5 @@
-<md-card>
-  <md-card-title>
-    <md-card-title-text>
-      <span class="md-subhead">Added {{ noteObject.created_at | date:'medium' }}</span>
-    </md-card-title-text>
-  </md-card-title>
-  <md-card-content>
-    <p>
-      {{ noteObject.note }}
-    </p>
-  </md-card-content>
-</md-card>
+<div class="md-list-item-text">
+  <div class="md-body-2"><em>Added {{ noteObject.created_at | date:'medium' }}</em></div>
+  <p>{{noteObject.note}}</p>
+</div>
+<md-divider></md-divider>
