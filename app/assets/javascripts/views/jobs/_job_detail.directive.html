@@ -2,7 +2,23 @@
   <md-card-title>
     <md-card-title-text>
       <span class="md-headline">{{ jobObject.job_name }}</span>
-      <span class="md-subhead">{{ jobObject.title }} @ {{ jobObject.company }}<br />Status: {{ jobObject.status }}</span>
+      <span class="md-subhead">{{ jobObject.title }} @ {{ jobObject.company }}</span>
+      <div layout="row" layout-wrap>
+        <div layout layout-align="left center" flex="5">Status: </div>
+        <div flex="20">
+        <md-select name="status" ng-model="jobObject.status" ng-change="vm.updateStatus(jobObject.id, jobObject.status)" aria-label="Status" convert-to-number>
+          <md-option value="1">Discovered</md-option>
+          <md-option value="2">Application in Progress</md-option>
+          <md-option value="3">Applied</md-option>
+          <md-option value="4">Interviewing</md-option>
+          <md-option value="5">Pending Response</md-option>
+          <md-option value="6">No Response</md-option>
+          <md-option value="7">Job Offer Received</md-option>
+          <md-option value="8">Job Offer Accepted</md-option>
+          <md-option value="9">Job Offer Declined</md-option>
+        </md-select>
+      </div>
+      </div>
     </md-card-title-text>
   </md-card-title>
   <md-card-content>
@@ -18,7 +34,7 @@
       Date Posted: {{ jobObject.date_posted |  date:'shortDate' }}
     </p>
     <p>
-      Application: <a href="{{ jobObject.app_url}}" target="_blank">{{ jobObject.app_url}}</a>
+      Application URL: <a href="{{ jobObject.app_url}}" target="_blank">{{ jobObject.app_url}}</a>
     </p>
     <p>
       Last Updated: {{ jobObject.updated_at | date : 'EEEE MM/dd/yyyy' }}<br />

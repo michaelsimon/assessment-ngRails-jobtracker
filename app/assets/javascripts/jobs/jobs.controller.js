@@ -7,6 +7,7 @@
 
     vm.createJob = createJob;
     vm.updateJob = updateJob;
+    vm.updateStatus = updateStatus;
 
     //instantiate functions
     activate();
@@ -27,6 +28,10 @@
     function getJobs() {
       return JobFactory.getJobs()
         .then(setJobs)
+    }
+
+    function updateStatus(jobId, jobStatus) {
+      return JobFactory.updateStatus(jobId, jobStatus)
     }
 
     function getJob(params) {

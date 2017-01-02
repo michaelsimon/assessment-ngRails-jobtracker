@@ -9,8 +9,8 @@
       getJobs: getJobs,
       getJob: getJob,
       createJob: createJob,
-      updateJob: updateJob
-      // deleteJob: deleteJob
+      updateJob: updateJob,
+      updateStatus: updateStatus
     }
 
     //define methods
@@ -37,14 +37,11 @@
           job: job
         }
       }
-
       return $http(req)
         .catch(handleError)
     }
 
     function updateJob(job, $state) {
-
-      // debugger
       var req = {
         method: 'PATCH',
         url: '/jobs/' + job.id,
@@ -55,7 +52,21 @@
           job: job
         }
       }
-      // console.log(req)
+      return $http(req)
+        .catch(handleError)
+    }
+
+    function updateStatus(id, status) {
+      var req = {
+        method: 'PATCH',
+        url: '/jobs/' + id,
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        data: {
+          status: status
+        }
+      }
       return $http(req)
         .catch(handleError)
     }
@@ -69,34 +80,6 @@
       return error
     }
 
-
-  //
-  //   createJob = function(job) {
-  //     return $http({
-  //       method: 'POST',
-  //       url: '/jobs/',
-  //       headers: {
-  //         'Content-Type': 'application/json'
-  //       },
-  //       data: {
-  //         job: job
-  //       }
-  //     });
-  //   };
-  //
-  //   updateJob = function(job) {
-  //     return $http({
-  //       method: 'PATCH',
-  //       url: '/jobs/' + job.id,
-  //       headers: {
-  //         'Content-Type': 'application/json'
-  //       },
-  //       data: {
-  //         job: job
-  //       }
-  //     });
-  //   };
-  //
   //   deleteJob = function(job) {
   //     return $http({
   //       method: 'DELETE',

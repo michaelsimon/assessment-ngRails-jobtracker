@@ -2272,7 +2272,8 @@ md-input-container {
     display: block; }
   md-input-container .md-errors-spacer {
     float: right;
-    min-height: 24px;
+    /*min-height: 24px;*/
+    min-height: 0px !important;
     min-width: 1px; }
     [dir=rtl] md-input-container .md-errors-spacer {
       float: left; }
