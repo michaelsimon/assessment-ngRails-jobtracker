@@ -1,35 +1,47 @@
 <div layout-padding>
   <h2 class="md-title">Your Jobs</h2>
-  <div layout="row" ng-show="signedIn()">
-    <div flex="33">
-      <md-button class="md-raised md-primary" ui-sref="jobs.new">New Job</md-button>
-    </div>
-    <div flex="33">
-      <md-input-container ng-show="vm.jobs.jobs.length > 0">
-        <label>Search Jobs</label>
-        <input type="text" ng-model="vm.search" ng-change="vm.refilter()" />
-      </md-input-container>
-    </div>
-  </div>
-  <div ng-show="vm.jobs.jobs.length < 1">
-    <md-content layout-xs="column" layout="row" layout-wrap>
-      <div flex="100" flex-sm="80">
-        <md-card>
-          <md-card-title>
-            <md-card-title-text>
-              <span class="md-headline">
-                Create a New Job to Get Started
-              </span>
-            </md-card-title-text>
-          </md-card-title>
-        </md-card>
+  <div layout="row">
+    <md-toolbar tall class="md-hue-1">
+      <div class="md-toolbar-tools">
+        <div flex="20">
+          <md-button class="md-raised md-primary" ui-sref="jobs.new">New Job</md-button>
+        </div>
+        <div flex="20">
+          <md-input-container class="md-block"  ng-show="vm.jobs.jobs.length > 0">
+            <label>Search Jobs</label>
+            <input type="text" ng-model="vm.search" />
+          </md-input-container>
+        </div>
+        <span flex="5"></span>
+        <div flex="20">
+          <md-input-container class="md-block" ng-show="vm.jobs.jobs.length > 0">
+            <label>Status</label>
+            <md-select ng-model="vm.jobs.jobs.status">
+              <md-option value="">View All</md-option>
+              <md-option value="1">Discovered</md-option>
+              <md-option value="2">Application in Progress</md-option>
+              <md-option value="3">Applied</md-option>
+              <md-option value="4">Interviewing</md-option>
+              <md-option value="5">Pending Response</md-option>
+              <md-option value="6">No Response</md-option>
+              <md-option value="7">Job Offer Received</md-option>
+              <md-option value="8">Job Offer Accepted</md-option>
+              <md-option value="9">Job Offer Declined</md-option>
+            </md-select>
+          </md-input-container>
+        </div>
       </div>
-    </md-content>
+    </md-toolbar>
   </div>
-  <md-content class="md-padding" layout-xs="column" layout="row" layout-wrap>
-    <div flex="33" flex-sm="80" ng-repeat="job in vm.jobs.jobs | filter: vm.search track by job.id">
-      <job job-object="job">
-      </job>
+  <md-content id="SiteBody" class="md-padding" layout-xs="column" layout="row" layout-wrap>
+    <div flex="33" flex-sm="100" ng-repeat="job in vm.jobs.jobs | filter: vm.search | filter: {status: vm.jobs.jobs.status} as jobsFiltered track by job.id">
+      <job job-object="job"></job>
+    </div>
+    <div ng-show="jobsFiltered.length < 1">
+      <md-body-3>No Jobs Found.&nbsp;</md-body-3>
+    </div>
+    <div ng-show="vm.jobs.jobs.length < 1">
+      <md-title>Create a New Job to Get Started. </md-title>
     </div>
   </md-content>
 </div>
