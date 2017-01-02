@@ -6,7 +6,9 @@
     </md-card-title-text>
   </md-card-title>
   <md-card-actions layout="row" layout-align="end center">
-    <md-button class="md-primary" ui-sref="jobs.show({id: jobObject.id})">Job {{ jobObject.id }} Details</md-button>
+    <span class="md-caption"><em>Last Updated {{ jobObject.updated_at |  date : 'shortDate' }}</em></span>
+    <div flex></div>
+    <md-button class="md-primary" ui-sref="jobs.show({id: jobObject.id})">Job Details</md-button>
     <md-button class="md-primary" ui-sref="jobs.edit({id: jobObject.id})">Edit Job</md-button>
   </md-card-actions>
 </md-card>
