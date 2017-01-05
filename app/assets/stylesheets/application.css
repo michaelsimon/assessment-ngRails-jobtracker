@@ -14,10 +14,11 @@
  *= require_self
  *= require angular-material
  */
-body {
-    background-color: #405536;
+[md-background-picture] {
     background-image: url('bg.jpg');
     background-size: cover;
+    background-attachment: fixed;
+    min-height: 100%
   }
 
   #SiteBody
