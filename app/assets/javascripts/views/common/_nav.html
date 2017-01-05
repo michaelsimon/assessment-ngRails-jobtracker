@@ -1,5 +1,5 @@
 <div layout="row">
-  <md-toolbar layout="row" class="md-toolbar-tools">
+  <md-toolbar layout="row" ng-cloak class="md-toolbar-tools">
     <h1><a href="#" ui-sref="jobs.list"><strong>Job Tracker</strong><span ng-if="user"> for {{ user.email }}</span></a></h1>
     <span flex></span>
     <md-button ng-show="!signedIn()" aria-label="Login" ui-sref="jobs.login">
