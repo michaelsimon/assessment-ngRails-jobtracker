@@ -6,7 +6,7 @@ class JobsController < ApplicationController
     if @jobs
       render json: @jobs, status: 201
     else
-      render json: {errors: @jobs.errors.full_messages}, status: :unprocessable_entity_message
+      render json: {errors: @jobs.errors.full_messages}, status: :unprocessable_entity
     end
   end
 
@@ -14,7 +14,7 @@ class JobsController < ApplicationController
     if @job
       render json: @job, status: 201
     else
-      render json: {errors: @job.errors.full_messages}, status: :unprocessable_entity_message
+      render json:'', status: 404
     end
   end
 
@@ -24,7 +24,7 @@ class JobsController < ApplicationController
     if @job.save
       render json: @job, status: 201
     else
-      render json: {errors: @job.errors.full_messages}, status: :unprocessable_entity_message
+      render json: {errors: @job.errors.full_messages}, status: :unprocessable_entity
     end
   end
 
@@ -32,7 +32,7 @@ class JobsController < ApplicationController
     if @job
       render json: @job, status: 201
     else
-      render json: {errors: @job.errors.full_messages}, status: :unprocessable_entity_message
+      render json: {errors: @job.errors.full_messages}, status: :unprocessable_entity
     end
   end
 
@@ -40,7 +40,7 @@ class JobsController < ApplicationController
     if @job.update(job_params)
       render json: @job, status: 201
     else
-      render json: {errors: @job.errors.full_messages}, status: :unprocessable_entity_message
+      render json: {errors: @job.errors.full_messages}, status: :unprocessable_entity
     end
   end
 
