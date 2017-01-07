@@ -1,5 +1,7 @@
 <div class="md-list-item-text">
-  <div class="md-body-2"><em>Added {{ noteObject.created_at | date:'medium' }}</em></div>
-  <p>{{noteObject.note}}</p>
+  <p>
+    <div class="md-body-2">Added {{ noteObject.created_at | date:'medium' }}</em></div>
+    <div class="md-body-1">{{noteObject.note}}</div>
+  </p>
 </div>
 <md-divider></md-divider>
