@@ -1,37 +1,54 @@
 <md-card>
-  <md-card-title>
+  <md-card-title align="center">
     <md-card-title-text>
       <span class="md-headline">{{ jobObject.job_name }}</span>
       <span class="md-subhead">{{ jobObject.title }} @ {{ jobObject.company }}</span>
-      <div layout="row" layout-wrap>
+      <div layout="row" layout-align="center">
         <div layout layout-align="left center" flex="5">Status: </div>
         <div flex="20">
-          <md-select name="status" ng-model="jobObject.status" ng-change="updateStatus({job_id: jobObject.id, status: jobObject.status})" aria-label="Status">
+          <md-select align="left" name="status" ng-model="jobObject.status" ng-change="updateStatus({job_id: jobObject.id, status: jobObject.status})" aria-label="Status">
             <md-option ng-repeat="status in statuses" ng-value="status.id">{{status.value}}</md-option>
           </md-select>
         </div>
       </div>
     </md-card-title-text>
   </md-card-title>
+  <md-divider layout="row"></md-divider>
   <md-card-content>
-    <p>
-      Description:<br />
-      {{ jobObject.description }}
-    </p>
-    <p>
-      Salary: {{ jobObject.salary }}
-    </p>
-    <p>
-      Date Found: {{ jobObject.date_found |  date : 'shortDate' }}<br />
-      Date Posted: {{ jobObject.date_posted |  date:'shortDate' }}
-    </p>
-    <p>
-      Application URL: <a href="{{ jobObject.app_url}}" target="_blank">{{ jobObject.app_url}}</a>
-    </p>
-    <p>
-      Last Updated: {{ jobObject.updated_at | date : 'EEEE MM/dd/yyyy' }}<br />
-      Created: {{ jobObject.created_at | date : 'EEEE MM/dd/yyyy' }}
-    </p>
+    <div layout="row">
+      <div flex>
+        <p>
+          <div class="md-body-2">Description</div>
+          <div class="md-body-1">{{ jobObject.description || 'Unavailable' }}</div>
+        </p>
+        <p>
+          <div class="md-body-2">Salary</div>
+          <div class="md-body-1">{{ jobObject.salary || 'Unavailable' }}</div>
+        </p>
+      </div>
+      <md-divider></md-divider>
+      <div flex style="padding-left: 10px;">
+        <p>
+          <div class="md-body-2">Application URL</div>
+          <div class="md-body-1"><a href="{{ jobObject.app_url}}" target="_blank">{{ jobObject.app_url || 'Unavailable'}}</a></div>
+        </p>
+      </div>
+      <md-divider ></md-divider>
+      <div flex style="padding-left: 10px;">
+        <p>
+          <div class="md-body-2">Date Found</div>
+          <div class="md-body-1">{{ (jobObject.date_found |  date : 'shortDate') || 'Unavailable' }}</div>
+          <div class="md-body-2">Date Posted</div>
+          <div class="md-body-1">{{ (jobObject.date_posted |  date:'shortDate') || 'Unavailable'}}</div>
+        </p>
+        <p>
+          <div class="md-body-2">Last Updated</div>
+          <div class="md-body-1"> {{ jobObject.updated_at | date : 'EEEE MM/dd/yyyy' }}</div>
+          <div class="md-body-2">Created</div>
+          <div class="md-body-1">{{ jobObject.created_at | date : 'EEEE MM/dd/yyyy' }}</div>
+        </p>
+      </div>
+    </div>
   </md-card-content>
   <md-card-actions layout="row" layout-align="end center">
     <md-button class="md-primary" ui-sref="jobs.edit({id: jobObject.id})">Edit Job</md-button>
