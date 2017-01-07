@@ -2,7 +2,7 @@
 
   'use strict'
 
-  function JobFactory($http) {
+  function JobFactory($http, $state) {
 
     //callable methods on JobFactory
     return {
@@ -77,22 +77,8 @@
     }
 
     function handleError(error) {
-      return error
+      $state.go('jobs.list')
     }
-
-  //   deleteJob = function(job) {
-  //     return $http({
-  //       method: 'DELETE',
-  //       url: '/jobs/' + job.id,
-  //       headers: {
-  //         'Content-Type': 'application/json'
-  //       },
-  //       data: {
-  //         job: job
-  //       }
-  //     });
-  //   };
-  //
   }
 
   angular
