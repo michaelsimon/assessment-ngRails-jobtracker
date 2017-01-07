@@ -1,8 +1,8 @@
-<div layout-padding id="SiteBody">
-  <div ng-controller="JobController as vm" class="row">
+<div layout-padding id="SiteBody" ng-cloak>
+  <div ng-controller="JobController as vm">
     <job-detail job-object="vm.jobs.job" statuses="vm.statuses" update-status="vm.updateStatus(job_id, status)"></job-detail>
   </div>
-  <div ng-layout="column" ng-cloak class="md-inline-form"  ng-controller="NoteController as vm">
+  <div layout-margin ng-controller="NoteController as vm">
     <p class="md-title">Notes</p>
     <md-content flex="80" style="height: 400px;">
       <section>
@@ -10,7 +10,6 @@
         <md-list layout-padding>
           <md-list-item class="md-w-line">
             <div class="md-list-item-text">
-              <!-- <div class="md-title">Add a Note</div> -->
               <form ng-submit="vm.createNote()">
                 <div flex="100">
                   <md-input-container class="md-block">
