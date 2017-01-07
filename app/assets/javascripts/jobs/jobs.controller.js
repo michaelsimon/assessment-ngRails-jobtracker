@@ -9,6 +9,18 @@
     vm.updateJob = updateJob;
     vm.updateStatus = updateStatus;
 
+    vm.statuses = [
+    {id: 1, value: 'Discovered'},
+    {id: 2, value: 'Application in Progress'},
+    {id: 3, value: 'Applied'},
+    {id: 4, value: 'Interviewing'},
+    {id: 5, value: 'Pending Response'},
+    {id: 6, value: 'No Response'},
+    {id: 7, value: 'Job Offer Received'},
+    {id: 8, value: 'Job Offer Accepted'},
+    {id: 9, value: 'Job Offer Declined'}
+  ];
+
     //instantiate functions
     activate();
 
