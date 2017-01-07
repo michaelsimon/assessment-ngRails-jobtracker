@@ -52,15 +52,8 @@
       <md-input-container class="md-block" flex-gt-xs>
         <label>Status</label>
         <md-select name="status" ng-model="vm.newJob.status" required>
-          <md-option value="1">Discovered</md-option>
-          <md-option value="2">Application in Progress</md-option>
-          <md-option value="3">Applied</md-option>
-          <md-option value="4">Interviewing</md-option>
-          <md-option value="5">Pending Response</md-option>
-          <md-option value="6">No Response</md-option>
-          <md-option value="7">Job Offer Received</md-option>
-          <md-option value="8">Job Offer Accepted</md-option>
-          <md-option value="9">Job Offer Declined</md-option>
+          <md-option ng-repeat="status in vm.statuses" ng-value="status.id">{{status.value}}</md-option>
+        </md-select>
         </md-select>
         <div ng-messages="newJob.status.$error">
           <div ng-message="required">Status is required.</div>

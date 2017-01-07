@@ -6,18 +6,10 @@
       <div layout="row" layout-wrap>
         <div layout layout-align="left center" flex="5">Status: </div>
         <div flex="20">
-        <md-select name="status" ng-model="jobObject.status" ng-change="vm.updateStatus(jobObject.id, jobObject.status)" aria-label="Status" convert-to-number>
-          <md-option value="1">Discovered</md-option>
-          <md-option value="2">Application in Progress</md-option>
-          <md-option value="3">Applied</md-option>
-          <md-option value="4">Interviewing</md-option>
-          <md-option value="5">Pending Response</md-option>
-          <md-option value="6">No Response</md-option>
-          <md-option value="7">Job Offer Received</md-option>
-          <md-option value="8">Job Offer Accepted</md-option>
-          <md-option value="9">Job Offer Declined</md-option>
-        </md-select>
-      </div>
+          <md-select name="status" ng-model="jobObject.status" ng-change="updateStatus({job_id: jobObject.id, status: jobObject.status})" aria-label="Status">
+            <md-option ng-repeat="status in statuses" ng-value="status.id">{{status.value}}</md-option>
+          </md-select>
+        </div>
       </div>
     </md-card-title-text>
   </md-card-title>
