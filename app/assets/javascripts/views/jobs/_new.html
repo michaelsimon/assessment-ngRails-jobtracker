@@ -2,54 +2,54 @@
   <h2 class="md-title">New Job</h2>
   <form name="newJob" ng-submit="vm.createJob()">
     <div flex="40" layout-padding layout-align="space-between start" id="SiteBody">
-      <md-input-container class="md-block" flex-gt-xs>
+      <md-input-container class="md-block"flex="40">
         <label>Job Name</label>
         <input type="text" required name="job_name" ng-model="vm.newJob.job_name" />
         <div ng-messages="newJob.job_name.$error">
           <div ng-message="required">Job Name is required.</div>
         </div>
       </md-input-container>
-      <md-input-container class="md-block" flex-gt-xs>
+      <md-input-container class="md-block" flex="40">
         <label>Job Title</label>
         <input type="text" required name="title" ng-model="vm.newJob.title" />
         <div ng-messages="newJob.title.$error">
           <div ng-message="required">Title is required.</div>
         </div>
       </md-input-container>
-      <md-input-container class="md-block" flex-gt-xs>
+      <md-input-container class="md-block" flex="40">
         <label>Company</label>
         <input type="text" required name="company" ng-model="vm.newJob.company" />
         <div ng-messages="newJob.company.$error">
           <div ng-message="required">Company is required.</div>
         </div>
       </md-input-container>
-      <md-input-container class="md-block" flex-gt-xs>
+      <md-input-container class="md-block" flex="40">
         <label>Description</label>
         <textarea name="description" ng-model="vm.newJob.description" rows="3" md-select-on-focus></textarea>
       </md-input-container>
-      <md-input-container class="md-block" flex-gt-xs>
+      <md-input-container class="md-block" flex="40">
         <label>Salary</label>
         <input type="text" name="salary" ng-model="vm.newJob.salary" />
       </md-input-container>
-      <md-input-container class="md-block" flex-gt-xs>
+      <md-input-container class="md-block" flex="40">
         <label>Application URL</label>
         <input type="text" name="url" ng-model="vm.newJob.app_url" />
       </md-input-container>
-      <md-input-container class="md-block" flex-gt-xs>
+      <md-input-container class="md-block" flex="40">
         <label>Date Found</label>
         <md-datepicker name="date_found" ng-model="vm.newJob.date_found" md-open-on-focus></md-datepicker>
         <div ng-messages="newJob.date_found.$error">
           <div ng-message="valid">The entered value is not a valid date.</div>
         </div>
       </md-input-container>
-      <md-input-container class="md-block" flex-gt-xs>
+      <md-input-container class="md-block" flex="40">
         <label>Date Posted</label>
         <md-datepicker name="date_posted" ng-model="vm.newJob.date_posted"  md-open-on-focus></md-datepicker>
         <div ng-messages="newJob.date_posted.$error">
           <div ng-message="valid">The entered value is not a valid date.</div>
         </div>
       </md-input-container>
-      <md-input-container class="md-block" flex-gt-xs>
+      <md-input-container class="md-block" flex="40">
         <label>Status</label>
         <md-select name="status" ng-model="vm.newJob.status" required>
           <md-option ng-repeat="status in vm.statuses" ng-value="status.id">{{status.value}}</md-option>
