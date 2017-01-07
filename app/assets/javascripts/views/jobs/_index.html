@@ -17,6 +17,7 @@
           <md-input-container class="md-block" ng-show="vm.jobs.jobs.length > 0">
             <label>Status</label>
             <md-select ng-model="vm.jobs.jobs.status">
+              <md-option value="">View All</md-option>
               <md-option ng-repeat="status in vm.statuses" ng-value="status.id">{{status.value}}</md-option>
             </md-select>
             </md-select>
