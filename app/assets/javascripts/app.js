@@ -11,35 +11,4 @@
     .accentPalette('grey');
   });
 
-angular
-.module('app')
-.directive('input', ['$parse', function ($parse) {
-  return {
-    restrict: 'E',
-    require: '?ngModel',
-    link: function (scope, element, attrs) {
-      if(attrs.value) {
-        $parse(attrs.ngModel).assign(scope, attrs.value);
-      }
-    }
-  };
-}]);
-
-angular
-.module('app')
-.directive('convertToNumber', function() {
-  return {
-    require: 'ngModel',
-    restrict: 'A',
-    link: function(scope, element, attrs, ngModel) {
-      ngModel.$parsers.push(function(val) {
-        return parseInt(val, 10);
-      });
-      ngModel.$formatters.push(function(val) {
-        return '' + val;
-      });
-    }
-  };
-});
-
 }())
