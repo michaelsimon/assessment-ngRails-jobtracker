@@ -41,7 +41,7 @@
         .catch(handleError)
     }
 
-    function updateJob(job, $state) {
+    function updateJob(job) {
       var req = {
         method: 'PATCH',
         url: '/jobs/' + job.id,

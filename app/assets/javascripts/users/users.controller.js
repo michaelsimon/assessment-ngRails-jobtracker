@@ -2,7 +2,7 @@
 
   'use strict';
 
-  function UserController($rootScope, $scope, $state, Auth, $mdDialog) {
+  function UserController($rootScope, $state, Auth, $mdDialog) {
     var vm = this;
     var config = {headers: {'X-HTTP-Method-Override': 'POST'}};
 

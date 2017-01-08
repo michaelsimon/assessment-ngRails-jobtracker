@@ -2,7 +2,7 @@
 
   'use strict'
 
-  function JobController(JobFactory, $state, $scope, Auth) {
+  function JobController(JobFactory, $state) {
     var vm = this;
 
     vm.createJob = createJob;
