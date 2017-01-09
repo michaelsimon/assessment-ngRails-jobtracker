@@ -4,13 +4,13 @@
 
   angular
   .module('app')
-  .config(function($stateProvider, $urlRouterProvider) {
+  .config(['$stateProvider', '$urlRouterProvider',  function($stateProvider, $urlRouterProvider) {
     $stateProvider
     .state('jobs', {
       url: "/",
       abstract: true,
       template: '<ui-view />',
-      controller: function ($rootScope, $state) {
+      controller: ['$rootScope', '$state', function ($rootScope, $state) {
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams, $rootScope) {
           var requireAuth = toState.data.requireAuth;
           if (requireAuth && typeof event.currentScope.user === 'undefined') {
@@ -21,7 +21,7 @@
         $rootScope.$on('devise:logout', function(event, oldCurrentUser) {
           $state.go('jobs.home');
         });
-      }
+      }]
     })
     .state('jobs.home', {
       url: "home",
@@ -78,6 +78,6 @@
       }
     })
     $urlRouterProvider.otherwise('/home');
-  });
+  }]);
 
 }())
