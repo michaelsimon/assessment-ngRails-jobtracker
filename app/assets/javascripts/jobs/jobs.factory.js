@@ -81,6 +81,8 @@
     }
   }
 
+  JobFactory.$inject = ['$http', '$state'];
+
   angular
   .module('app')
   .factory('JobFactory', JobFactory);

@@ -26,6 +26,8 @@
 
   }
 
+AuthService.$inject = ['$rootScope', 'Auth'];
+
   angular
   .module('app')
   .service('AuthService', AuthService);

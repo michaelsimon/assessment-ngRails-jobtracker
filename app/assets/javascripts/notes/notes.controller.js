@@ -29,6 +29,8 @@
     }
   }
 
+  NoteController.$inject = ['NoteFactory', '$state'];
+
   angular
     .module('app')
     .controller('NoteController', NoteController);

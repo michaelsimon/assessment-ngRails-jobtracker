@@ -40,6 +40,8 @@
     }
   }
 
+  NoteFactory.$inject = ['$http', '$state'];
+
   angular
   .module('app')
   .factory('NoteFactory', NoteFactory);

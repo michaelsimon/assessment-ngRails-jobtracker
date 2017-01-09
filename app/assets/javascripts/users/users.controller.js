@@ -36,8 +36,10 @@
         );
       })
     }
-
   }
+
+  UserController.$inject = ['$rootScope', '$state', 'Auth', '$mdDialog'];
+
   angular
   .module('app')
   .controller('UserController', UserController);

@@ -66,6 +66,9 @@
     }
 
   }
+
+  JobController.$inject = ['JobFactory', '$state'];
+  
   angular
     .module('app')
     .controller('JobController', JobController);

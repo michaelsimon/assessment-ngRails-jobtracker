@@ -8,6 +8,8 @@
     }
   }
 
+  Nav.$inject = ['AuthService'];
+
   angular
   .module('app')
   .directive('nav', Nav);
