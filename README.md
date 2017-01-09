@@ -6,9 +6,11 @@ The JobTracker application allows one or more individuals to be able to create a
 (The following instructions assume you will be running on a system with Ruby 2.2+ available).
 
 * Fork and clone this repository to your target environment.
-* Run 'bundle install' to download any required RubyGems.
-* Run rake db:migrate to create database
-* Execute `rails s` from the command line to start your Rack-based server.
+
+From the command line:
+* Run `bundle install` to download any required RubyGems.
+* Run `rake db:migrate` to create database
+* Execute `rails s`  to start your Rack-based server.
 
 ## Usage
 
