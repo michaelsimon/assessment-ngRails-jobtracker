@@ -45,6 +45,14 @@
         requireAuth: true
       }
     })
+    .state('jobs.show.notes', {
+      url: "/notes",
+      templateUrl: 'views/notes/_show.html',
+      controller: 'NoteController as vm',
+      data: {
+        requireAuth: true
+      }
+    })
     .state('jobs.new', {
       url: "new",
       templateUrl: 'views/jobs/_new.html',
