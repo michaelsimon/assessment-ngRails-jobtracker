@@ -1,0 +1,31 @@
+<div layout-margin>
+  <p class="md-title">Notes</p>
+  <md-content flex="80" style="height: 400px;">
+    <section>
+      <md-subheader class="md-primary">Add Note</md-subheader>
+      <md-list layout-padding>
+        <md-list-item class="md-w-line">
+          <div class="md-list-item-text">
+            <form ng-submit="vm.createNote()">
+              <div flex="100">
+                <md-input-container class="md-block">
+                  <label>Note</label>
+                  <textarea ng-model="vm.newNote.note" style="width: 500px; "rows="2" required></textarea>
+                </md-input-container>
+                <md-button class="md-raised md-primary" type="submit">Add Note</md-button>
+              </div>
+            </form>
+          </div>
+        </md-list-item>
+      </md-list>
+    </section>
+    <section>
+      <md-subheader class="md-secondary">Previous Note(s)</md-subheader>
+      <md-list layout-padding>
+        <md-list-item class="md-w-line" ng-repeat="note in vm.notes.notes track by note.id">
+          <note note-object="note">
+          </md-list-item>
+        </md-list>
+      </section>
+    </md-content>
+  </div>
