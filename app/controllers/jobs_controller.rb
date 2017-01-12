@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-  before_action :get_job, only: [:show, :edit, :update]
+  before_action :get_job, only: [:show, :update]
 
   def index
     @jobs = Job.where(user: current_user)
@@ -22,14 +22,6 @@ class JobsController < ApplicationController
     @job = Job.new(job_params)
     @job.user = current_user
     if @job.save
-      render json: @job, status: 201
-    else
-      render json: {errors: @job.errors.full_messages}, status: :unprocessable_entity
-    end
-  end
-
-  def edit
-    if @job
       render json: @job, status: 201
     else
       render json: {errors: @job.errors.full_messages}, status: :unprocessable_entity
