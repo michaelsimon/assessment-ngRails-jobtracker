@@ -1,6 +1,6 @@
-# JobTracker
+# Track My Calling
 
-The JobTracker application allows one or more individuals to be able to create an account in the application and track their job leads. This includes maintaining details about the job, tracking the status of the job, and adding notes to the job. When viewing a list of their jobs, a user can filter the list based on the status, and can also perform a free-text search of the content.
+Track My Calling allows one or more individuals to be able to create an account in the application and track their job leads. This includes maintaining details about the job, tracking the status of the job, and adding notes to the job. When viewing a list of their jobs, a user can filter the list based on the status, and can also perform a free-text search of the content.
 
 ## Installation
 (The following instructions assume you will be running on a system with Ruby 2.2+ available).
@@ -16,7 +16,7 @@ From the command line:
 
 **Functionality**
 
-The JobTracker application maintains the following pieces of information:
+Track My Calling maintains the following pieces of information:
 
 Job Information:
 * Job Name
