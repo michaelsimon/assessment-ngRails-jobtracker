@@ -7,7 +7,7 @@
   .config(['$httpProvider','$mdThemingProvider',function($httpProvider, $mdThemingProvider){
     $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
     $mdThemingProvider.theme('default')
-    .primaryPalette('brown')
+    .primaryPalette('blue-grey')
     .accentPalette('grey');
   }]);
 

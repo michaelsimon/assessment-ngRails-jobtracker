@@ -16,7 +16,7 @@
  *= require angular-material
  */
 [md-background-picture] {
-    background-image: url('bg.jpg');
+    background-image: url('bg2.jpg');
     background-size: cover;
     background-attachment: fixed;
     min-height: 100%
