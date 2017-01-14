@@ -19,7 +19,7 @@
       <div flex>
         <p>
           <div style="float: right; padding-right: 5px">
-            <i class="material-icons md-36">description</i>
+            <i class="material-icons md-36" style="color: #90A4AE;">description</i>
           </div>
           <div class="md-body-2">Description</div>
           <div class="md-body-1">{{ jobObject.description || 'Unavailable' }}</div>
@@ -33,7 +33,7 @@
       <div flex style="padding-left: 10px;">
         <p>
           <div style="float: right; padding-right: 5px">
-            <i class="material-icons md-36">public</i>
+            <i class="material-icons md-36" style="color: #90A4AE;">public</i>
           </div>
           <div class="md-body-2">Application URL</div>
           <div class="md-body-1"><a href="{{ jobObject.app_url}}" target="_blank">{{ jobObject.app_url || 'Unavailable'}}</a></div>
@@ -43,7 +43,7 @@
       <div flex style="padding-left: 10px;">
         <p>
           <div style="float: right; padding-right: 5px">
-            <i class="material-icons md-36">event_note</i>
+            <i class="material-icons md-36" style="color: #90A4AE;">event_note</i>
           </div>
           <div class="md-body-2">Date Found</div>
           <div class="md-body-1">{{ (jobObject.date_found |  date : 'shortDate') || 'Unavailable' }}</div>
