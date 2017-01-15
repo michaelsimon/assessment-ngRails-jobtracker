@@ -29,7 +29,7 @@
       if ($state.current.name == "jobs.list") {
         getJobs();
       }
-      else if  ($state.current.name == "jobs.show") {
+      else if  ($state.current.name == "jobs.show" || $state.current.name == "jobs.show.notes") {
         getJob($state.params.id)
       }
       else if ($state.current.name == "jobs.edit")  {
@@ -68,7 +68,7 @@
   }
 
   JobController.$inject = ['JobFactory', '$state'];
-  
+
   angular
     .module('app')
     .controller('JobController', JobController);

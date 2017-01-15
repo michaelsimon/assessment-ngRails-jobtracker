@@ -1,6 +1,6 @@
 class NotesController < ApplicationController
   def index
-    @notes = Note.where(job_id: params[:job_id]).order(created_at: :desc)
+    @notes = Note.where(job_id: params[:id]).order(created_at: :desc)
     if @notes
       render json: @notes, status: 201
     end
@@ -8,7 +8,7 @@ class NotesController < ApplicationController
 
   def create
     @note = Note.new(note_params)
-    @note.job_id = params[:job_id]
+    @note.job_id = params[:id]
     if @note.save
       render json: @note,  status: 201
     else
