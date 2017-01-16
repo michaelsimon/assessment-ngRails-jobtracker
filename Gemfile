@@ -24,15 +24,8 @@ gem 'bower-rails'
 gem 'angular-rails-templates'
 # Adds user authentication to rails app
 gem 'devise'
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use Unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+# Add Pry to all environments
+gem 'pry'
 
 group :production do
   gem 'pg'
@@ -45,7 +38,6 @@ group :development, :test do
   gem 'capybara'
   gem 'launchy'
   gem 'better_errors'
-  gem 'pry'
   gem 'sqlite3'
 end
 
