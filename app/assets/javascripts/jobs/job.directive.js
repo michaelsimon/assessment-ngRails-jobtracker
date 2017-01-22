@@ -2,19 +2,17 @@
 
   'use strict';
 
-  function Job() {
+  angular
+    .module('app')
+    .directive('job', function() {
     return {
-      restrict: 'EA',
+      restrict: 'E',
       templateUrl: 'views/jobs/_job.directive.html',
       scope: {
         jobObject: '='
       }
     }
-  }
+  });
 
 
-
-  angular
-    .module('app')
-    .directive('job', Job)
 }())
