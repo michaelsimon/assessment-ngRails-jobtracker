@@ -1,6 +1,6 @@
 <div layout-padding id="SiteBody" ng-cloak>
-  <div ng-controller="JobController as vm">
-    <job-detail job-object="vm.jobs.job" statuses="vm.statuses" update-status="vm.updateStatus(job_id, status)"></job-detail>
-    
+  <div>
+    <job-detail job-object="vm.jobs.job" statuses="statuses" update-status="updateStatus({id: job_id, status: status})"></job-detail>
+
   <ui-view></ui-view>
   </div>

@@ -8,7 +8,8 @@
     return {
       restrict: 'E',
       templateUrl: 'views/jobs/_job_detail.directive.html',
-      scope: {
+      controller: 'JobController as vm',
+      bindToController: {
         jobObject: '=',
         statuses: '=',
         updateStatus: '&'
