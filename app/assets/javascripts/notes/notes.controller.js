@@ -4,9 +4,8 @@
 
   angular
     .module('app')
-    .controller('NoteController', ['NoteFactory', '$state', function(NoteFactory, $state) {
+    .controller('NoteController', ['NoteFactory', function(NoteFactory) {
     var vm = this;
-    vm.job_id = $state;
 
     vm.createNote = createNote;
 
