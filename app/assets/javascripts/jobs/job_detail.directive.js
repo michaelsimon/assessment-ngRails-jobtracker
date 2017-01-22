@@ -2,9 +2,11 @@
 
   'use strict';
 
-  function JobDetail() {
+  angular
+    .module('app')
+    .directive('jobDetail', function() {
     return {
-      restrict: 'EA',
+      restrict: 'E',
       templateUrl: 'views/jobs/_job_detail.directive.html',
       scope: {
         jobObject: '=',
@@ -12,11 +14,7 @@
         updateStatus: '&'
       }
     }
-  }
+  });
 
 
-
-  angular
-    .module('app')
-    .directive('jobDetail', JobDetail)
 }())
