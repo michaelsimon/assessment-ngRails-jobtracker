@@ -2,7 +2,9 @@
 
   'use strict';
 
-  function AuthService($rootScope, Auth) {
+  angular
+  .module('app')
+  .service('AuthService', ['$rootScope', 'Auth', function($rootScope, Auth) {
 
     $rootScope.signedIn = Auth.isAuthenticated;
     $rootScope.logout  = Auth.logout;
@@ -22,14 +24,6 @@
     $rootScope.$on('devise:logout', function (e, user){
       $rootScope.user = undefined
     });
-
-
-  }
-
-AuthService.$inject = ['$rootScope', 'Auth'];
-
-  angular
-  .module('app')
-  .service('AuthService', AuthService);
+  }]);
 
 }())

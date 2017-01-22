@@ -2,7 +2,9 @@
 
   'use strict'
 
-  function NoteController(NoteFactory, $state) {
+  angular
+    .module('app')
+    .controller('NoteController', ['NoteFactory', '$state', function(NoteFactory, $state) {
     var vm = this;
     vm.job_id = $state;
 
@@ -27,11 +29,6 @@
     function setNotes(data) {
       return vm.notes = data;
     }
-  }
+  }]);
 
-  NoteController.$inject = ['NoteFactory', '$state'];
-
-  angular
-    .module('app')
-    .controller('NoteController', NoteController);
 }())

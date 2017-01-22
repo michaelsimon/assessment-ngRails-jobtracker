@@ -2,7 +2,9 @@
 
   'use strict';
 
-  function UserController($rootScope, $state, Auth, $mdDialog) {
+  angular
+  .module('app')
+  .controller('UserController', ['$rootScope', '$state', 'Auth', '$mdDialog', function($rootScope, $state, Auth, $mdDialog) {
     var vm = this;
     var config = {headers: {'X-HTTP-Method-Override': 'POST'}};
 
@@ -36,13 +38,8 @@
         );
       })
     }
-  }
+  }]);
 
-  UserController.$inject = ['$rootScope', '$state', 'Auth', '$mdDialog'];
-
-  angular
-  .module('app')
-  .controller('UserController', UserController);
 
 
 }())

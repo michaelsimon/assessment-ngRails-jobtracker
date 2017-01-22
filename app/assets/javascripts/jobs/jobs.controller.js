@@ -2,7 +2,9 @@
 
   'use strict'
 
-  function JobController(JobFactory, $state) {
+  angular
+    .module('app')
+    .controller('JobController', ['JobFactory', '$state', function(JobFactory, $state) {
     var vm = this;
 
     vm.createJob = createJob;
@@ -64,12 +66,6 @@
     function setJobs(data) {
       return vm.jobs = data;
     }
+  }]);
 
-  }
-
-  JobController.$inject = ['JobFactory', '$state'];
-
-  angular
-    .module('app')
-    .controller('JobController', JobController);
 }())

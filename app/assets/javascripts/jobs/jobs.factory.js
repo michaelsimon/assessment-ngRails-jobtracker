@@ -2,7 +2,9 @@
 
   'use strict'
 
-  function JobFactory($http, $state) {
+  angular
+  .module('app')
+  .factory('JobFactory', ['$http', '$state', function($http, $state) {
 
     //callable methods on JobFactory
     return {
@@ -79,12 +81,6 @@
     function handleError(error) {
       $state.go('jobs.list')
     }
-  }
-
-  JobFactory.$inject = ['$http', '$state'];
-
-  angular
-  .module('app')
-  .factory('JobFactory', JobFactory);
+  }]);
 
 }())

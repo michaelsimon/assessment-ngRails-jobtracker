@@ -2,7 +2,9 @@
 
   'use strict'
 
-  function NoteFactory($http, $state) {
+  angular
+  .module('app')
+  .factory('NoteFactory', ['$http', '$state', function($http, $state) {
 
     return {
       getNotes: getNotes,
@@ -38,11 +40,6 @@
     function handleError(error) {
       return error
     }
-  }
+  }]);
 
-  NoteFactory.$inject = ['$http', '$state'];
-
-  angular
-  .module('app')
-  .factory('NoteFactory', NoteFactory);
 }())
