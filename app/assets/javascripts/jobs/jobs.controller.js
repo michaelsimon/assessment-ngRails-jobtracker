@@ -60,7 +60,7 @@
 
     function updateJob() {
       return JobFactory.updateJob(vm.jobs.job)
-        .then($state.go('jobs.list'))
+        .then($state.go('jobs.show', {id: $state.params.id}))
     }
 
     function setJobs(data) {
