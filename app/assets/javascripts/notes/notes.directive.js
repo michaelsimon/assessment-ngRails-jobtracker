@@ -2,7 +2,9 @@
 
   'use strict';
 
-  function Note() {
+  angular
+  .module('app')
+  .directive('note', function() {
     return {
       restrict: 'E',
       templateUrl: 'views/notes/_note.directive.html',
@@ -10,9 +12,7 @@
         noteObject: '='
       }
     }
-  }
+  });
 
-  angular
-    .module('app')
-    .directive('note', Note)
+
 }())
