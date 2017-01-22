@@ -7,7 +7,7 @@
     .directive('job', function() {
     return {
       restrict: 'E',
-      templateUrl: 'views/jobs/_job.directive.html',
+      templateUrl: 'views/jobs/_job.html',
       scope: {
         jobObject: '='
       }

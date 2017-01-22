@@ -7,7 +7,7 @@
     .directive('jobDetail', function() {
     return {
       restrict: 'E',
-      templateUrl: 'views/jobs/_job_detail.directive.html',
+      templateUrl: 'views/jobs/_job_detail.html',
       controller: 'JobController as vm',
       bindToController: {
         jobObject: '=',
