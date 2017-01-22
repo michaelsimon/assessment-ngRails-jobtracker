@@ -1,12 +1,12 @@
 <md-card>
   <md-card-title align="center">
     <md-card-title-text>
-      <span class="md-headline">{{ jobObject.job_name }}</span>
-      <span class="md-subhead">{{ jobObject.title }} @ {{ jobObject.company }}</span>
+      <span class="md-headline">{{ vm.jobObject.job_name }}</span>
+      <span class="md-subhead">{{ vm.jobObject.title }} @ {{ vm.jobObject.company }}</span>
       <div layout="row" layout-align="center">
         <div layout layout-align="left center" flex="5">Status: </div>
         <div flex="20">
-          <md-select align="left" name="status" ng-model="jobObject.status" ng-change="updateStatus({job_id: jobObject.id, status: jobObject.status})" aria-label="Status">
+          <md-select align="left" name="status" ng-model="vm.jobObject.status" ng-change="vm.updateStatus(vm.jobObject.id, vm.jobObject.status)" aria-label="Status">
             <md-option ng-repeat="status in statuses" ng-value="status.id">{{status.value}}</md-option>
           </md-select>
         </div>
@@ -22,11 +22,11 @@
             <i class="material-icons md-36" style="color: #90A4AE;">description</i>
           </div>
           <div class="md-body-2">Description</div>
-          <div class="md-body-1">{{ jobObject.description || 'Unavailable' }}</div>
+          <div class="md-body-1">{{ vm.jobObject.description || 'Unavailable' }}</div>
         </p>
         <p>
           <div class="md-body-2">Salary</div>
-          <div class="md-body-1">{{ jobObject.salary || 'Unavailable' }}</div>
+          <div class="md-body-1">{{ vm.jobObject.salary || 'Unavailable' }}</div>
         </p>
       </div>
       <md-divider></md-divider>
@@ -36,7 +36,7 @@
             <i class="material-icons md-36" style="color: #90A4AE;">public</i>
           </div>
           <div class="md-body-2">Application URL</div>
-          <div class="md-body-1"><a href="{{ jobObject.app_url}}" target="_blank">{{ jobObject.app_url || 'Unavailable'}}</a></div>
+          <div class="md-body-1"><a href="{{ vm.jobObject.app_url}}" target="_blank">{{ vm.jobObject.app_url || 'Unavailable'}}</a></div>
         </p>
       </div>
       <md-divider ></md-divider>
@@ -46,21 +46,21 @@
             <i class="material-icons md-36" style="color: #90A4AE;">event_note</i>
           </div>
           <div class="md-body-2">Date Found</div>
-          <div class="md-body-1">{{ (jobObject.date_found |  date : 'shortDate') || 'Unavailable' }}</div>
+          <div class="md-body-1">{{ (vm.jobObject.date_found |  date : 'shortDate') || 'Unavailable' }}</div>
           <div class="md-body-2">Date Posted</div>
-          <div class="md-body-1">{{ (jobObject.date_posted |  date:'shortDate') || 'Unavailable'}}</div>
+          <div class="md-body-1">{{ (vm.jobObject.date_posted |  date:'shortDate') || 'Unavailable'}}</div>
         </p>
         <p>
           <div class="md-body-2">Last Updated</div>
-          <div class="md-body-1"> {{ jobObject.updated_at | date : 'EEEE MM/dd/yyyy' }}</div>
+          <div class="md-body-1"> {{ vm.jobObject.updated_at | date : 'EEEE MM/dd/yyyy' }}</div>
           <div class="md-body-2">Created</div>
-          <div class="md-body-1">{{ jobObject.created_at | date : 'EEEE MM/dd/yyyy' }}</div>
+          <div class="md-body-1">{{ vm.jobObject.created_at | date : 'EEEE MM/dd/yyyy' }}</div>
         </p>
       </div>
     </div>
   </md-card-content>
   <md-card-actions layout="row" layout-align="end center">
-      <md-button class="md-primary" ui-sref="jobs.show.notes({id: jobObject.id})">View Notes</md-button>
-      <md-button class="md-primary" ui-sref="jobs.edit({id: jobObject.id})">Edit Job</md-button>
+      <md-button class="md-primary" ui-sref="jobs.show.notes({id: vm.jobObject.id})">View Notes</md-button>
+      <md-button class="md-primary" ui-sref="jobs.edit({id: vm.jobObject.id})">Edit Job</md-button>
   </md-card-actions>
 </md-card>
